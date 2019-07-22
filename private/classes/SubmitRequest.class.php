@@ -44,7 +44,7 @@ class SubmitRequest {
         'rejected' => $rejected
       ];
 
-      $sql =
+      /*$sql =
             "
             SELECT vacation_start, vacation_end
                 FROM requests
@@ -53,7 +53,7 @@ class SubmitRequest {
       $result = $db->select($sql);
       if($result->num_rows > 0) {
         echo "Cannot send a request for the same period";
-      } else {
+      } else {*/
         $request = $db->insert($table, $data);
         if($request) {
           $to = 'managementsystem24@gmail.com';
@@ -77,7 +77,7 @@ class SubmitRequest {
           ";
           mail($to, $title, $message, $header);
         }
-      }
+      //}
       header("location:/employee-home.php");
     }
   }
