@@ -29,7 +29,8 @@ class EmailStatus {
             WHERE apply_by = '$id' AND approved_hash = '$approved_hash' AND approved = '0'
             "
           );
-          echo "The request has been approved. An email has been sent to {$first_name} {$last_name} for this reason.";
+          /*echo "The request has been approved. An email has been sent to {$first_name} {$last_name} for this reason.";*/
+          header("location: /employee-home.php");
           if($query) {
             $to = $_GET['email'];
             $title = "Request Approved";
@@ -83,7 +84,8 @@ class EmailStatus {
             WHERE apply_by = '$id' AND rejected_hash = '$rejected_hash' AND rejected = '0'
             "
           );
-          echo "The request has been rejected. An email has been sent to {$first_name} {$last_name} for this reason.";
+          /*echo "The request has been rejected. An email has been sent to {$first_name} {$last_name} for this reason.";*/
+          header("location: /employee-home.php");
           if($query) {
             $to = $_GET['email'];
             $title = "Request Rejected";
